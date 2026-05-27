@@ -1,0 +1,49 @@
+{
+  "id": "paper-trail",
+  "group": "Tools",
+  "name": "Paper Trail",
+  "description": "Contract-aware audit engine. Store contract billing terms, paste invoices, and let Claude flag overbilling, missing receipts, and policy violations.",
+  "version": "1.0.0",
+  "author": "ARI",
+  "icon": "ShieldCheck",
+  "enabled": false,
+  "fullscreen": false,
+  "menuPriority": 10,
+  "permissions": {
+    "database": true,
+    "api": true,
+    "dashboard": true
+  },
+  "routes": [
+    {
+      "path": "/paper-trail",
+      "label": "Paper Trail",
+      "icon": "ShieldCheck",
+      "sidebarPosition": "main"
+    }
+  ],
+  "dependencies": {
+    "modules": [],
+    "coreFeatures": []
+  },
+  "database": {
+    "tables": [
+      "paper_trail_contracts",
+      "paper_trail_invoices",
+      "paper_trail_audit_results"
+    ]
+  },
+  "npmDependencies": {},
+  "dashboard": {
+    "widgets": true,
+    "statCards": ["./components/dashboard-stat-card.tsx"]
+  },
+  "submenu": {
+    "component": "./components/sidebar-submenu.tsx"
+  },
+  "storage": {
+    "bucket": "paper-trail",
+    "maxFileSize": 10485760,
+    "allowedMimeTypes": ["image/jpeg", "image/png", "image/webp", "application/pdf"]
+  }
+}
